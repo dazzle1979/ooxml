@@ -4,19 +4,12 @@
 						,created=now()
 						,modified=now()
 						,sheets= [
-							{ name="Sheet 1" },
-							{ name="Sheet 1" }
+							{ name="Sheet1" },
+							{ name="Sheet2" }
 						] 
 					})>
-<cfabort />
-<cffile action="read" file="ram:///filename.txt" variable="ramfile"/>
-
-<cfdump var="#ramfile#" /><cfdump var="#GetVFSMetaData('ram')#"/><cfabort />
-
-<cffile action="write" file="ram:///filename.txt" output="This file is an in-memory file"/>
-<cfzip action="zip" source="ram:///filename.txt" file="test2.zip">
-
-<cffile action="write" file="zip://test.zip!test.txt" output="test">
-<cfdump var="#cgi#" />
+<cfset Xlsx.createSheet("",1)>
+<cfset Xlsx.createSheet("",2)>
+<cfset Xlsx.send()>
 
 
