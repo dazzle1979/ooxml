@@ -10,6 +10,8 @@ component xlsx output="false" {
 	variables.workbookRelsXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"></Relationships>';
 	variables.workbookXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets></sheets></workbook>';
 
+	/* Init function */
+
 	public xlsx function init(struct config) {
 		variables.config = arguments.config
 		//DEV code
@@ -34,8 +36,10 @@ component xlsx output="false" {
 		return this;
 	}
 
+	/* Public functions */
+
 	public void function createSheet(string data, numeric sheetnumber) {
-		arguments.data = ' <row> <c r="a1" s="1" t="inlineStr"><is><t>Project</t></is></c> <c r="b1" s="1" t="inlineStr"><is><t>Activiteit</t></is></c> <c r="c1" s="1" t="inlineStr"><is><t>Medewerker</t></is></c> <c r="d1" s="1" t="inlineStr"><is><t>Periode</t></is></c> <c r="e1" s="1" t="inlineStr"><is><t>Uren</t></is></c> <c r="f1" s="1" t="inlineStr"><is><t>Kosten</t></is></c> <c r="g1" s="1" t="inlineStr"><is><t>Aantal</t></is></c> <c r="h1" s="1" t="inlineStr"><is><t>Dag</t></is></c> <c r="i1" s="1" t="inlineStr"><is><t>Opmerkingen</t></is></c> </row> <row> <c r="a2" s="3" t="inlineStr"><is><t>AAH Alligator (11631)</t></is></c> <c r="b2" s="3" t="inlineStr"><is><t>Consultancy</t></is></c> <c r="c2" s="3" t="inlineStr"><is><t>Graaf, Bas van der</t></is></c> <c r="d2" s="3" t="d"><v>2014-08-04T00:00:00.000</v></c> <c r="e2" s="4" t="n"><v>1</v></c> <c r="f2" s="4" t="n"><v>0</v></c> <c r="g2" s="4" t="n"><v>0</v></c> <c r="h2" s="4" t="n"><v>0</v></c> <c r="i2" s="3" t="inlineStr"><is><t></t></is></c> </row> <row> <c r="a3" s="6" t="inlineStr"><is><t>AAH Alligator (11631)</t></is></c> <c r="b3" s="6" t="inlineStr"><is><t>Consultancy</t></is></c> <c r="c3" s="6" t="inlineStr"><is><t>Graaf, Bas van der</t></is></c> <c r="d3" s="6" t="d"><v>2014-08-08T00:00:00.000</v></c> <c r="e3" s="7" t="n"><v>1</v></c> <c r="f3" s="7" t="n"><v>0</v></c> <c r="g3" s="7" t="n"><v>0</v></c> <c r="h3" s="7" t="n"><v>0</v></c> <c r="i3" s="6" t="inlineStr"><is><t></t></is></c> </row> <row> <c r="a4" s="3" t="inlineStr"><is><t>Dell</t></is></c> <c r="b4" s="3" t="inlineStr"><is><t>Maatwerk</t></is></c> <c r="c4" s="3" t="inlineStr"><is><t>Graaf, Bas van der</t></is></c> <c r="d4" s="3" t="d"><v>2014-08-08T00:00:00.000</v></c> <c r="e4" s="4" t="n"><v>1.7500</v></c> <c r="f4" s="4" t="n"><v>0</v></c> <c r="g4" s="4" t="n"><v>0</v></c> <c r="h4" s="4" t="n"><v>0</v></c> <c r="i4" s="3" t="inlineStr"><is><t></t></is></c> </row> <row> <c r="a5" s="8"/> <c r="b5" s="8"/> <c r="c5" s="8"/> <c r="d5" s="8"/> <c r="e5" s="9" t="str"><f>SUM(e2:e4)</f><v>0</v></c> <c r="f5" s="9" t="str"><f>SUM(f2:f4)</f><v>0</v></c> <c r="g5" s="9" t="str"><f>SUM(g2:g4)</f><v>0</v></c> <c r="h5" s="9" t="str"><f>SUM(h2:h4)</f><v>0</v></c> <c r="i5" s="8"/> </row>';
+		//arguments.data = ' <row> <c r="a1" s="1" t="inlineStr"><is><t>Project</t></is></c> <c r="b1" s="1" t="inlineStr"><is><t>Activiteit</t></is></c> <c r="c1" s="1" t="inlineStr"><is><t>Medewerker</t></is></c> <c r="d1" s="1" t="inlineStr"><is><t>Periode</t></is></c> <c r="e1" s="1" t="inlineStr"><is><t>Uren</t></is></c> <c r="f1" s="1" t="inlineStr"><is><t>Kosten</t></is></c> <c r="g1" s="1" t="inlineStr"><is><t>Aantal</t></is></c> <c r="h1" s="1" t="inlineStr"><is><t>Dag</t></is></c> <c r="i1" s="1" t="inlineStr"><is><t>Opmerkingen</t></is></c> </row> <row> <c r="a2" s="3" t="inlineStr"><is><t>AAH Alligator (11631)</t></is></c> <c r="b2" s="3" t="inlineStr"><is><t>Consultancy</t></is></c> <c r="c2" s="3" t="inlineStr"><is><t>Graaf, Bas van der</t></is></c> <c r="d2" s="3" t="d"><v>2014-08-04T00:00:00.000</v></c> <c r="e2" s="4" t="n"><v>1</v></c> <c r="f2" s="4" t="n"><v>0</v></c> <c r="g2" s="4" t="n"><v>0</v></c> <c r="h2" s="4" t="n"><v>0</v></c> <c r="i2" s="3" t="inlineStr"><is><t></t></is></c> </row> <row> <c r="a3" s="6" t="inlineStr"><is><t>AAH Alligator (11631)</t></is></c> <c r="b3" s="6" t="inlineStr"><is><t>Consultancy</t></is></c> <c r="c3" s="6" t="inlineStr"><is><t>Graaf, Bas van der</t></is></c> <c r="d3" s="6" t="d"><v>2014-08-08T00:00:00.000</v></c> <c r="e3" s="7" t="n"><v>1</v></c> <c r="f3" s="7" t="n"><v>0</v></c> <c r="g3" s="7" t="n"><v>0</v></c> <c r="h3" s="7" t="n"><v>0</v></c> <c r="i3" s="6" t="inlineStr"><is><t></t></is></c> </row> <row> <c r="a4" s="3" t="inlineStr"><is><t>Dell</t></is></c> <c r="b4" s="3" t="inlineStr"><is><t>Maatwerk</t></is></c> <c r="c4" s="3" t="inlineStr"><is><t>Graaf, Bas van der</t></is></c> <c r="d4" s="3" t="d"><v>2014-08-08T00:00:00.000</v></c> <c r="e4" s="4" t="n"><v>1.7500</v></c> <c r="f4" s="4" t="n"><v>0</v></c> <c r="g4" s="4" t="n"><v>0</v></c> <c r="h4" s="4" t="n"><v>0</v></c> <c r="i4" s="3" t="inlineStr"><is><t></t></is></c> </row> <row> <c r="a5" s="8"/> <c r="b5" s="8"/> <c r="c5" s="8"/> <c r="d5" s="8"/> <c r="e5" s="9" t="str"><f>SUM(e2:e4)</f><v>0</v></c> <c r="f5" s="9" t="str"><f>SUM(f2:f4)</f><v>0</v></c> <c r="g5" s="9" t="str"><f>SUM(g2:g4)</f><v>0</v></c> <c r="h5" s="9" t="str"><f>SUM(h2:h4)</f><v>0</v></c> <c r="i5" s="8"/> </row>';
 		var sheetXml = xmlParse('<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>#arguments.data#</sheetData></worksheet>');
 		
 		file action="write" file="#variables.xlsxDirPath#\xl\worksheets\sheet#arguments.sheetnumber#.xml" output="#sheetXml#";
@@ -52,6 +56,16 @@ component xlsx output="false" {
 
 		file action="delete" file="#variables.zipPath#";
 	}
+
+	public void function save(string file, boolean delete = true) {
+		zip action="zip" source="#variables.xlsxDirPath#" file="#file#";
+
+		if(arguments.delete) {
+			directoryDelete(variables.xlsxDirPath,true);
+		}
+	}
+
+	/* Private */
 
 	private void function createCore() {
 		var coreXml = xmlParse(variables.coreXml);
