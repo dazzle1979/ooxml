@@ -6,7 +6,7 @@ Create Xlsx fast en easy (CFML/Railo)
 
 Example usage without styles
 =====
-```
+```coldfusion
 <cfset Xlsx = createObject("component","Xlsx")>
 <cfset Xlsx.init(	{	creator="Bas van der Graaf"
 						,lastModifiedBy="Bas van der Graaf"
